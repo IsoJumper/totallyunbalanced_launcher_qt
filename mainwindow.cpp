@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     settings.endGroup();
     // Setting Up UI
     ui->horizontalSlider->setValue(m_settings.ResolutionQuality);
+    ui->Label_Value->setText(QString::number(m_settings.ResolutionQuality));
     ui->comboBox1->setCurrentIndex(m_settings.ViewDistanceQuality);
     ui->comboBox2->setCurrentIndex(m_settings.AntiAlisingQuality);
     ui->comboBox3->setCurrentIndex(m_settings.ShadowQuality);

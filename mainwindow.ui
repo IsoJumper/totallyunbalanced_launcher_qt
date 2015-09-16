@@ -233,9 +233,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>230</x>
       <y>280</y>
-      <width>81</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -245,7 +245,7 @@
      </font>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>ViewDistance Quality</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider">
@@ -293,7 +293,7 @@
      <rect>
       <x>550</x>
       <y>240</y>
-      <width>51</width>
+      <width>21</width>
       <height>21</height>
      </rect>
     </property>
@@ -303,7 +303,7 @@
      </font>
     </property>
     <property name="text">
-     <string>VALUE</string>
+     <string>100</string>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">
@@ -330,6 +330,96 @@
     </property>
     <property name="text">
      <string>Play</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>310</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>AntiAlising Quality</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>370</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>PostProcess Quality</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>340</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Shadow Quality</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>400</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Texture Quality</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>430</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Effects Quality</string>
     </property>
    </widget>
   </widget>
