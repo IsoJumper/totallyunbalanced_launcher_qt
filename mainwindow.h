@@ -29,6 +29,8 @@ public:
 
 private:
     QString PathToIni;
+    void RunGame();
+    QString BrExe;
 
 private slots:
     void on_horizontalSlider_valueChanged(int value);

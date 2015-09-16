@@ -11,7 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Totally Unbalanced Launcher</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QComboBox" name="comboBox1">
@@ -309,9 +315,9 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-10</y>
-      <width>831</width>
+      <x>-10</x>
+      <y>-20</y>
+      <width>851</width>
       <height>241</height>
      </rect>
     </property>
@@ -420,6 +426,19 @@
     </property>
     <property name="text">
      <string>Effects Quality</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="DEBUGLABEL">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>470</y>
+      <width>821</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>

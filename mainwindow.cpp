@@ -4,21 +4,26 @@
 #include "QFile"
 #include "QSettings"
 #include "QMessageBox"
-
+#include <QScreen>
+#include "qt_windows.h"
+#include "QProcess"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     // File Checks
-    QDir TotallyUnballonced("/TotallyUnballonced/");
+    QDir TotallyUnballonced("./TotallyUnballonced");
     if (TotallyUnballonced.exists() == false)
     {
         QMessageBox::critical(this,tr("Totally Unbalanced Launcher"),tr("Game Files are missing,please verify cache through Steam."));
     }
     // Building Window
+    setWindowFlags(Qt::MSWindowsFixedSizeDialogHint);
     ui->setupUi(this);
-    PathToIni = QDir::currentPath() + "TotallyUnballonced/Config/DefaultGameUserSettings.ini";
+    BrExe = QDir::currentPath()+"/Bridge.exe";
+    ui->DEBUGLABEL->setText(BrExe);
+    PathToIni = QDir::currentPath() + "/TotallyUnballonced/Config/DefaultGameUserSettings.ini";
     QSettings settings(PathToIni, QSettings::IniFormat);
     settings.beginGroup("ScalabilityGroup");
     m_settings.ResolutionQuality = settings.value("sg.ResolutionQuality",100).toInt();
@@ -78,4 +83,71 @@ void MainWindow::on_pushButton_clicked()
 {
     saveSettings();
     this->close();
+}
+
+void MainWindow::RunGame()
+{
+    int width = qApp->primaryScreen()->size().width();
+    int height = qApp->primaryScreen()->size().height();
+    QString GameWidth;
+    QString GameHeight;
+    QString ScreenMode;
+    // width
+    switch(width)
+    {
+                    case 1280:
+                            GameWidth = "1280";
+                            break;
+                    case 1366:
+                            GameWidth = "1366";
+                            break;
+                    case 1440:
+                            GameWidth = "1440";
+                            break;
+                    case 1600:
+                            GameWidth = "1600";
+                            break;
+                    case 1920:
+                            GameWidth = "1920";
+                            break;
+    }
+    // height
+    switch(height)
+    {
+                    case 600:
+                        GameHeight = "600";
+                        break;
+                    case 720:
+                        GameHeight = "720";
+                        break;
+                    case 768:
+                        GameHeight = "720";
+                        break;
+                    case 960:
+                        GameHeight = "720";
+                        break;
+                    case 1024:
+                        GameHeight = "720";
+                        break;
+                    case 1080:
+                        GameHeight = "1080";
+                        break;
+                    case 1200:
+                        GameHeight = "1200";
+                        break;
+                    case 1440:
+                        GameHeight = "1440";
+                        break;
+                    break;
+
+    }
+    // Screen Mode, not working probl
+    //if (height == 720 && width == 1280){ScreenMode = fullscreen;}
+    //if (height == 1080 && width == 1920){ScreenMode = fullscreen;}
+    //if (height == 1200 && width == 1920){ScreenMode = fullscreen;}
+    QString Exe = QDir::currentPath()+"/Bridge.exe";
+    QStringList Args;
+    Args << "-windowed " << "-height=" << GameHeight << " -width=" << GameWidth;
+    QProcess process;
+    process.start(BrExe, Args);
 }
