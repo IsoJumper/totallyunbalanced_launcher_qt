@@ -3,43 +3,30 @@
 
 #include <QMainWindow>
 
-namespace Ui {
-class MainWindow;
-}
-
-struct RawSettings {
-    int ResolutionQuality;
-    int ViewDistanceQuality;
-    int AntiAlisingQuality;
-    int ShadowQuality;
-    int PostProcessQuality;
-    int TextureQuality;
-    int EffectsQuality;
-    bool bUseVSync;
-};
+namespace Ui { class MainWindow; }
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    void saveSettings();
-    ~MainWindow();
-
-private:
-    QString PathToIni;
-    void RunGame();
-    QString BrExe;
+	explicit MainWindow(QWidget *parent = 0);
+	~MainWindow();
 
 private slots:
-    void on_horizontalSlider_valueChanged(int value);
-
-    void on_pushButton_clicked();
+	void on_buttonPlay_clicked();
+	
+private:
+	void ReloadScreenSizes(QSize const&);
+	bool RunGame();
+	void SaveSettings();
 
 private:
-    Ui::MainWindow *ui;
-    RawSettings m_settings;
+	Ui::MainWindow *ui;
+	
+	QString m_executable;
+	QString m_iniPath;
+	QSize m_screenSize;
 };
 
 #endif // MAINWINDOW_H

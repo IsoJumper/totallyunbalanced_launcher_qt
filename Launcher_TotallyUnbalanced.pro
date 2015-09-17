@@ -15,10 +15,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    configmanager.cpp
+    ssettings.cpp
 
 HEADERS  += mainwindow.h \
-    configmanager.h
+    ssettings.h
 
 FORMS    += mainwindow.ui
 
