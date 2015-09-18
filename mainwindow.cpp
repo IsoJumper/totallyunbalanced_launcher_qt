@@ -134,7 +134,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->bVsync->setChecked(settings.value("bUseVSync",true).toBool());
 	settings.endGroup();
 	
-	settings.beginGroup("SGH.LauncherInfo");
+    settings.beginGroup("TotallyUnbalanced.LauncherInfo");
 	QSize optimalSize = settings.value("Resolution",m_screenSize).toSize();
 	settings.endGroup();
 	
@@ -164,7 +164,7 @@ void MainWindow::SaveSettings()
 	settings.setValue("bUseVSync", ui->bVsync->isChecked() ? QStringLiteral("true") : QStringLiteral("false"));
 	settings.endGroup();
 	
-	settings.beginGroup("SGH.LauncherInfo");
+    settings.beginGroup("TotallyUnbalanced.LauncherInfo");
 	QSize selectedResolution = SizeFromString(ui->cbResolution->currentText());
 	if(selectedResolution == QSize(-1,-1))
 		selectedResolution = m_screenSize;
@@ -181,12 +181,12 @@ bool MainWindow::RunGame()
 	
 	QStringList Args;
 	Args << (bFullscreen ? QStringLiteral("-fullscreen") : QStringLiteral("-windowed"))
-		 << (QString("-height=")+QString::number(selectedResolution.height()))
-		 << (QString("-width=")+QString::number(selectedResolution.width()));
+         << (QString("-resy=")+QString::number(selectedResolution.height()))
+         << (QString("-resx=")+QString::number(selectedResolution.width()));
 	
 	QProcess process;
-	process.start(m_executable, Args);
-	process.waitForStarted(3000);
+    //Won't start using process.start(m_executable, Args); because we must close launcher before running.
+    process.startDetached(m_executable, Args);
 	if((process.state() == QProcess::NotRunning) && (process.error() != QProcess::UnknownError) && (process.error() != QProcess::Timedout))
 	{
 		QMessageBox::critical(this,QStringLiteral("Totally Unbalanced Launcher"),QStringLiteral("Fatal Error:\nCould not start process: ")+g_processName+QStringLiteral(" ."));
