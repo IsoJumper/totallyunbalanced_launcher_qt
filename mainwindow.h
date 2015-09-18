@@ -27,6 +27,7 @@ private:
 	QString m_executable;
 	QString m_iniPath;
 	QSize m_screenSize;
+    QString ThisDirectory;
 };
 
 #endif // MAINWINDOW_H
