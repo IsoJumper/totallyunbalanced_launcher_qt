@@ -7,6 +7,12 @@
 QT       += core gui
 CONFIG += c++11
 
+
+### COMMENT THE FOLLOWING IF OPENSSL NOT INSTALLED ###
+DEFINES += USE_OPENSSL_MD5
+LIBS += -lcrypto
+######################################################
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Launcher_TotallyUnbalanced
@@ -16,11 +22,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     ssettings.cpp \
-    startupcheck.cpp
+    startupcheck.cpp \
+    checksum.cpp
 
 HEADERS  += mainwindow.h \
     ssettings.h \
-    startupcheck.h
+    startupcheck.h \
+    checksum.h
 
 FORMS    += mainwindow.ui
 
