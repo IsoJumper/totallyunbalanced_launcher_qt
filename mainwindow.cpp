@@ -101,9 +101,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	m_executable(QDir::currentPath()+"/"+g_processName),
 	m_iniPath(QDir::currentPath()+"/TotallyUnballonced/Config/DefaultGameUserSettings.ini"),
 	m_screenSize(qApp->primaryScreen() ? qApp->primaryScreen()->size() : QSize(-1,-1))
-{
+ {
+    // Integrity Check
 	ui->setupUi(this);
-	
 	SSettingsIni settings(m_iniPath, QSettings::IniFormat);
 	
 	settings.beginGroup("ScalabilityGroup");

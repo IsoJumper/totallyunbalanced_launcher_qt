@@ -15,10 +15,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    ssettings.cpp
+    ssettings.cpp \
+    startupcheck.cpp
 
 HEADERS  += mainwindow.h \
-    ssettings.h
+    ssettings.h \
+    startupcheck.h
 
 FORMS    += mainwindow.ui
 
