@@ -1,4 +1,4 @@
-/*	Copyright (c) 2015 SGH
+/*	Copyright (c) 2015 IsoJumper
 **	
 **	Permission is granted to use, modify and redistribute this software.
 **	Modified versions of this software MUST be marked as such.
