@@ -9,8 +9,8 @@ CONFIG += c++11
 
 
 ### COMMENT THE FOLLOWING IF OPENSSL NOT INSTALLED ###
-DEFINES += USE_OPENSSL_MD5
-LIBS += -lcrypto
+###DEFINES += USE_OPENSSL_MD5
+###LIBS += -lcrypto
 ######################################################
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -34,3 +34,7 @@ FORMS    += mainwindow.ui
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    Icon.ico
+win32:RC_ICONS += Icon.ico

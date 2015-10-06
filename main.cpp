@@ -5,8 +5,8 @@
 
 int main(int argc, char *argv[])
 {
+    QApplication::addLibraryPath(".");
 	QApplication a(argc, argv);
-	
 	try {
 		QString errorText;
 		if(!CheckIntegrity(errorText))

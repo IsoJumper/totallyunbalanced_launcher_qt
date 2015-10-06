@@ -14,9 +14,9 @@ static std::map<std::string,ChecksumStorageInfo> const g_requiredFiles = {
 };
 
 static std::vector<std::string> const g_requiredFolders = {
-	"Engine",
-	"TotallyUnballonced",
-	"TotallyUnballonced/Content"
+    "/Engine",
+    "/TotallyUnballonced",
+    "/TotallyUnballonced/Content"
 };
 
 bool CheckIntegrity(QString& errorText)
