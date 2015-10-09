@@ -1,25 +1,7 @@
 #ifndef STARTUPCHECK_H
 #define STARTUPCHECK_H
-#include <QDir>
-#include <QFile>
+#include <QString>
 
-
-
-class StartupCheck
-{
-public:
-    StartupCheck();
-    int CheckIntegrity();
-    int CheckRequirements();
-private:
-    // Directories
-    QDir EngineDirectory;
-    QDir TUDirectory;
-    QDir ContentDirectory;
-    // Files
-    QFileInfo ProjectFile;
-    QFileInfo Bridge;
-
-};
+bool CheckIntegrity(QString&);
 
 #endif // STARTUPCHECK_H

@@ -1,25 +1,27 @@
 #include "mainwindow.h"
 #include "startupcheck.h"
 #include <QApplication>
-#include <QScreen>
-
+#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
+    QApplication::addLibraryPath(".");
 	QApplication a(argc, argv);
-    StartupCheck Checker;
-    int IntegrityState = Checker.CheckIntegrity();
-    int RequirementsState = Checker.CheckRequirements();
-    if (IntegrityState == 1){return 1;}
-    if (IntegrityState == 0)
-    {
-       if (RequirementsState == 1){return 1;}
-       if (RequirementsState == 0)
-       {
-           MainWindow w;
-           w.show();
-           return a.exec();
-       }
-    }
-    return 0;
+	try {
+		QString errorText;
+		if(!CheckIntegrity(errorText))
+		{
+			QMessageBox::critical(nullptr,QStringLiteral("Totally Unbalanced Launcher"),errorText);
+			return 1;
+		}
+	} catch(std::exception& e)
+	{
+		QMessageBox::critical(nullptr,QStringLiteral("Totally Unbalanced Launcher"),QLatin1String(e.what()));
+		return 1;
+	}
+	
+	MainWindow w;
+	w.show();
+	return a.exec();
+	return 0;
 }
