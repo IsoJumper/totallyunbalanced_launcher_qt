@@ -9,14 +9,14 @@
 
 static std::map<std::string,ChecksumStorageInfo> const g_requiredFiles = {
 	// {"Name.jpg","checksum"}
-	{"bridge.exe",{"",FLAG_WINANY}},
+    {"bridgeMP.exe",{"",FLAG_WINANY}},
 	{"bridge",{"",FLAG_LINUX}}
 };
 
 static std::vector<std::string> const g_requiredFolders = {
     "/Engine",
-    "/TotallyUnballonced",
-    "/TotallyUnballonced/Content"
+    "/TotallyUnballoncedMP",
+    "/TotallyUnballoncedMP/Content"
 };
 
 bool CheckIntegrity(QString& errorText)
